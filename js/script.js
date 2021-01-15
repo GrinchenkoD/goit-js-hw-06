@@ -94,13 +94,24 @@ import users from './users.js';
 // ===============================Task-9==================================
 // Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
 
-const getNamesSortedByFriendsCount = users => {
-  users.sort();
-  // твой код
-};
+// const getNamesSortedByFriendsCount = users => {
+//   const sortingByName = (userA, userB) => {
+//     if (userA.friends.length > userB.friends.length) {
+//       return 1;
+//     }
+//     if (userA.friends.length < userB.friends.length) {
+//       return -1;
+//     }
+//     if (userA.friends.length === userB.friends.length) {
+//       return 0;
+//     }
+//   };
+//   return users.sort(sortingByName).map(user => user.name);
+//   // твой код
+// };
 
-console.log(getNamesSortedByFriendsCount(users));
-[ 'Moore Hensley', 'Sharlene Bush', 'Elma Head',
+// console.log(getNamesSortedByFriendsCount(users));
+// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head',
 // 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
 // ===============================Task-10==================================
@@ -109,7 +120,13 @@ console.log(getNamesSortedByFriendsCount(users));
 // при этом не должно быть повторяющихся умений и они должны быть отсортированы в алфавитном порядке.
 
 const getSortedUniqueSkills = users => {
-  // твой код
+  let result = [];
+  users.forEach(user => {
+    user.skills.forEach(skill =>
+      !result.includes(skill) ? result.push(skill) : '',
+    );
+  });
+  return result.sort();
 };
 
 console.log(getSortedUniqueSkills(users));
