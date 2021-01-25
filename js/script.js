@@ -147,6 +147,5 @@ const getSortedUniqueSkills = users => {
     .filter((skill, index, arr) => arr.indexOf(skill) == index)
     .sort();
 };
-console.log(getSortedUniqueSkills(users));
 
 //NEED TO FIX!!!
